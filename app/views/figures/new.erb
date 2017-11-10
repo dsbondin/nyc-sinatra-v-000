@@ -1,21 +1,21 @@
 <h1>Figures</h1>
 
 <form action="/figures" method="POST">
-  <p><h4>Name:</h4> <input type="text" name="figure[name]"></p>
+  <p><h4>Name:</h4> <input type="text" name="figure[name]" id="figure_name"></p>
 
   <p><h4>Choose from existing titles:</h4></p>
     <% @titles.each do |title|  %>
-      <input type="checkbox" name="figure[title_ids][]" value="<%=title.id%>">
+      <input type="checkbox" name="figure[title_ids][]" value="<%=title.id%>" id="title_<%=title.id%>">
       <%= title.name %></input>
     <% end %>
-  <p><h4>Or enter a new one: <input type="text" name="title[name]"></h4></p>
+  <p><h4>And/or enter a new one: <input type="text" name="title[name]" id="new_title"></h4></p>
   <br></br>
   <p><h4>Choose an existing landmarks:</h4></p>
     <% @landmarks.each do |landmark|  %>
-      <input type="checkbox" name="figure[landmark_ids][]" value="<%=landmark.id%>">
+      <input type="checkbox" name="figure[landmark_ids][]" value="<%=landmark.id%>" id="landmark_<%=landmark.id%>">
       <%= landmark.name %></input>
     <% end %>
-  <p><h4>Or enter a new one: <input type="text" name="landmark[name]"></h4></p>
+  <p><h4>And/or enter a new one: <input type="text" name="landmark[name]" id="new_landmark"></h4></p>
 
   <input type="submit" value="Create New Figure">
 </form>
